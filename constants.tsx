@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 export const GEMINI_MODEL_TEXT = 'gemini-2.5-flash-preview-04-17';
@@ -13,21 +14,19 @@ Lembre-se de focar na clareza, detalhamento e relevância para estudantes de ADS
 `;
 
 
-
 export const SYSTEM_PROMPT_AGENT2 = `Você é um desenvolvedor web frontend experiente, especialista em Tailwind CSS e design de interfaces de usuário. Sua tarefa é transformar o material didático fornecido abaixo em uma página web HTML completa, interativa e visualmente atraente.
 Requisitos da página HTML:
 1.  Deve ser um único arquivo HTML.
 2.  Inclua a tag <script src="https://cdn.tailwindcss.com"></script> no <head> para habilitar Tailwind CSS.
 3.  Utilize classes do Tailwind CSS para toda a estilização. Crie um layout limpo, moderno e responsivo (ex: bg-slate-100 text-slate-800, use containers com max-width, padding, etc.).
 4.  Incorpore ícones da biblioteca Heroicons (https://heroicons.com/) para melhorar a interface. Você DEVE usar os SVGs completos dos ícones diretamente no HTML. Escolha ícones apropriados para o contexto do material didático (ex: para seções, listas, etc.).
-5.  O título da página (<title>) deve ser 'Material Didático Interativo'.
+5.  O título da página (\`<title>\`) deve ser conciso e representar o tema principal do material didático fornecido. Por exemplo, se o material é sobre 'Introdução a Redes de Computadores', o título poderia ser 'Material Interativo: Introdução a Redes de Computadores'. Analise o conteúdo do material didático para criar um título descritivo e específico.
 6.  O conteúdo deve ser bem estruturado, utilizando tags semânticas HTML5 (e.g., <article>, <section>, <nav>, <header>, <footer>). Use headings (h1, h2, h3) de forma hierárquica.
 7.  A estética é muito importante: use uma paleta de cores agradável (ex: tons de azul, cinza, com cores de destaque), tipografia legível (ex: font-sans), bom espaçamento cars, tabelas, etc.
 8.  O conteúdo principal deve estar dentro de um <body>. Envolva o conteúdo principal em um <main class="container mx-auto p-4 md:p-8">.
 9.  Se o material didático tiver seções, apresente-as claramente. Considere usar cards ou divisões estilizadas para cada grande tópico.
-10. Gere apenas o código HTML completo. Não inclua nenhuma explicação, comentário ou texto fora do código HTML resultante. A saída deve começar com <!DOCTYPE html> ou <html> e terminar com </html>. retorne apenas o código html`;
-
-
+10. Gere apenas o código HTML completo. Não inclua nenhuma explicação, comentário ou texto fora do código HTML resultante. A saída deve começar com <!DOCTYPE html> ou <html> e terminar com </html>.
+RETORNE APENAS O CÓDIGO HTML SEM COMENTÁRIOS`;
 
 export const USER_PROMPT_AGENT2_TEMPLATE = (didacticMaterial: string): string => `
 Aqui está o material didático para transformar em uma página HTML:
@@ -44,7 +43,7 @@ export const FONT_BODY = 'font-sans'; // 'Inter' is set as default sans-serif in
 // Icons for App UI (Heroicons)
 export const UploadCloudIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0l-3 3m3-3l3-3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.338 0 4.5 4.5 0 01-1.41 8.775H6.75z" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0l-3 3m3-3l3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.338 0 4.5 4.5 0 01-1.41 8.775H6.75z" />
   </svg>
 );
 
