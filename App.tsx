@@ -7,7 +7,7 @@ import { extractTextFromPdf } from './services/pdfProcessor';
 import { generateDidacticMaterial, generateInteractivePage } from './services/geminiService';
 import { 
   BookOpenIcon, AlertTriangleIcon, DocumentTextIcon, CogIcon, ArrowPathIcon,
-  InteractiveLearningIcon, // Added new icon
+  InteractiveLearningIcon,
   FONT_BODY, FONT_TITLE
 } from './constants';
 import * as pdfjsLib from 'pdfjs-dist';
@@ -41,7 +41,7 @@ const App: React.FC = () => {
   };
 
   const handleFileSelected = useCallback(async (file: File) => {
-    resetStateForNewFile();
+    resetStateForNewFile(); // Reset previous state first
     setPdfFile(file);
     setPdfName(file.name);
     setIsLoading(true);
@@ -52,12 +52,12 @@ const App: React.FC = () => {
       const arrayBuffer = await file.arrayBuffer();
       const pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
       setNumPages(pdfDoc.numPages);
-      setStartPage('1');
-      setEndPage(String(pdfDoc.numPages));
+      setStartPage('1'); // Default start page
+      setEndPage(String(pdfDoc.numPages)); // Default end page
     } catch (err) {
       console.error("Erro ao ler informações do PDF:", err);
       setError(err instanceof Error ? `Erro ao ler PDF: ${err.message}` : 'Erro desconhecido ao ler PDF.');
-      resetStateForNewFile();
+      resetStateForNewFile(); // Ensure reset on error
     } finally {
       setIsLoading(false);
       setLoadingMessage('');
@@ -84,7 +84,7 @@ const App: React.FC = () => {
     setIsLoading(true);
 
     try {
-      setLoadingMessage(`Extraindo texto do PDF (páginas ${sPage}-${ePage})...`);
+      setLoadingMessage(`Extraindo texto do PDF (páginas ${sPage} a ${ePage})...`);
       const pdfText = await extractTextFromPdf(pdfFile, sPage, ePage);
       if (!pdfText.trim()) {
         throw new Error('O intervalo de páginas selecionado parece estar vazio ou não contém texto legível.');
@@ -101,6 +101,9 @@ const App: React.FC = () => {
     } catch (err) {
       console.error(err);
       setError(err instanceof Error ? err.message : 'Ocorreu um erro desconhecido.');
+      // Keep pdfFile and page info so user can retry or adjust if it's a transient error
+      setDidacticMaterial(null);
+      setGeneratedHtml(null);
     } finally {
       setIsLoading(false);
       setLoadingMessage('');
