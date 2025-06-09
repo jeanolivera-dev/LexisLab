@@ -24,7 +24,9 @@ Requisitos da página HTML:
 7.  A estética é muito importante: use uma paleta de cores agradável (ex: tons de azul, cinza, com cores de destaque), tipografia legível (ex: font-sans), bom espaçamento cars, tabelas, etc.
 8.  O conteúdo principal deve estar dentro de um <body>. Envolva o conteúdo principal em um <main class="container mx-auto p-4 md:p-8">.
 9.  Se o material didático tiver seções, apresente-as claramente. Considere usar cards ou divisões estilizadas para cada grande tópico.
-10. Gere apenas o código HTML completo. Não inclua nenhuma explicação, comentário ou texto fora do código HTML resultante. A saída deve começar com <!DOCTYPE html> ou <html> e terminar com </html>.`;
+10. Gere apenas o código HTML completo. Não inclua nenhuma explicação, comentário ou texto fora do código HTML resultante. A saída deve começar com <!DOCTYPE html> ou <html> e terminar com </html>.
+Retorne apenas o html
+`;
 
 export const USER_PROMPT_AGENT2_TEMPLATE = (didacticMaterial: string): string => `
 Aqui está o material didático para transformar em uma página HTML:
