@@ -1,0 +1,6 @@
+{
+  "name": "LexisLab",
+  "description": "LexisLab: Uma aplicação que transforma PDFs educacionais em material didático interativo e páginas web utilizando IA Gemini.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}

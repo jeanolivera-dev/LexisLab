@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LexisLab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom animation for indeterminate progress bar */
+      @keyframes indeterminate-slide {
+        0% {
+          left: 0;
+          transform: translateX(-100%); /* Start with the right edge of the bar at the left edge of the container */
+        }
+        50% {
+          left: 100%;
+          transform: translateX(0%); /* End with the left edge of the bar at the right edge of the container */
+        }
+        100% {
+           left: 0;
+          transform: translateX(-100%); /* Loop back */
+        }
+      }
+      .animate-indeterminate-slide {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 40%; /* Width of the moving segment */
+        animation: indeterminate-slide 2s infinite ease-in-out;
+      }
+    </style>
+    <script>
+      // Apply dark mode immediately from localStorage to prevent FOUC
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      // Tailwind CSS Customization (Conceptual - applied via classes)
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'primary-bg-light': '#F0F9FF', // sky-50 (Very light blue)
+              'primary-bg-dark': '#0C4A6E',  // sky-900 (Deep blue)
+              'content-bg-light': '#FFFFFF', // White
+              'content-bg-dark': '#1F2937',  // gray-800 (Dark gray for cards)
+              'accent-blue': '#3B82F6',     // blue-500
+              'accent-yellow': '#F59E0B',   // amber-500 (Primary CTA color)
+              'accent-green': '#10B981',    // emerald-500
+              'text-light-primary': '#1F2937', // gray-800
+              'text-light-secondary': '#4B5563', // gray-600
+              'text-dark-primary': '#F3F4F6', // gray-100
+              'text-dark-secondary': '#9CA3AF', // gray-400
+              'accent-cta-text': '#FFFFFF', // White text for yellow CTA buttons
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              poppins: ['Poppins', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "pdfjs-dist": "https://esm.sh/pdfjs-dist@^5.3.31",
+    "@google/genai": "https://esm.sh/@google/genai@^1.4.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="font-sans bg-primary-bg-light dark:bg-primary-bg-dark text-text-light-primary dark:text-text-dark-primary transition-colors duration-300">
+    <noscript>Você precisa habilitar o JavaScript para rodar este aplicativo.</noscript>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
