@@ -10,7 +10,7 @@ Por favor, transforme o seguinte texto extraído de um PDF em material didático
 ---
 ${pdfText}
 ---
-Lembre-se de focar na clareza, detalhamento e relevância para estudantes de ADS.
+Lembre-se de focar na clareza, detalhamento e relevância para estudantes.
 `;
 
 
@@ -21,10 +21,9 @@ Requisitos da página HTML:
 2.1.  Inclua a tag <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> para habilitar o Material Icons
 2.2. Inclua a tag <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> para habilitar a font Poppins
 3.  Utilize classes do Tailwind CSS para toda a estilização. Crie um layout limpo, moderno e responsivo (ex: bg-slate-100 text-slate-800, use containers com max-width, padding, etc.).
-4.  Incorpore ícones da biblioteca Heroicons (https://heroicons.com/) para melhorar a interface. Você DEVE usar os SVGs completos dos ícones diretamente no HTML. Escolha ícones apropriados para o contexto do material didático (ex: para seções, listas, etc.).
 5.  O título da página (\`<title>\`) deve ser conciso e representar o tema principal do material didático fornecido. Por exemplo, se o material é sobre 'Introdução a Redes de Computadores', o título poderia ser 'Material Interativo: Introdução a Redes de Computadores'. Analise o conteúdo do material didático para criar um título descritivo e específico.
 6.  O conteúdo deve ser bem estruturado, utilizando tags semânticas HTML5 (e.g., <article>, <section>, <nav>, <header>, <footer>). Use headings (h1, h2, h3) de forma hierárquica.
-7.  A estética é muito importante: use uma paleta de cores agradável (ex: tons de azul, cinza, com cores de destaque), tipografia legível (ex: font-sans), bom espaçamento cars, tabelas, etc.
+7.  A estética é muito importante: use uma paleta de cores agradável (ex: tons de azul, cinza, com cores de destaque), tipografia legível (ex: Poppins), bom espaçamento cars, tabelas, etc.
 8.  O conteúdo principal deve estar dentro de um <body>. Envolva o conteúdo principal em um <main class="container mx-auto p-4 md:p-8">.
 9.  Se o material didático tiver seções, apresente-as claramente. Considere usar cards ou divisões estilizadas para cada grande tópico.
 10. Gere apenas o código HTML completo. Não inclua nenhuma explicação, comentário ou texto fora do código HTML resultante. A saída deve começar com <!DOCTYPE html> ou <html> e terminar com </html>.
