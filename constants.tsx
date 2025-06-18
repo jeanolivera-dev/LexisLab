@@ -1,9 +1,9 @@
 
 import React from 'react';
 
-export const GEMINI_MODEL_TEXT = 'gemini-2.5-flash-preview-04-17';
+export const GEMINI_MODEL_TEXT = 'gemini-2.5-flash';
 
-export const SYSTEM_PROMPT_AGENT1 = `Você é um especialista em Análise e Desenvolvimento de Sistemas (ADS). Transforme o seguinte texto extraído de um PDF em um material didático completo e detalhado para estudantes de ADS. O material deve ser bem estruturado, com explicações claras, exemplos práticos (se aplicável), e tópicos relevantes para a área. Formate a saída como texto puro, bem organizado, rico em conteúdo e pronto para ser usado como base para estudo. Utilize Markdown para formatação básica como títulos, listas e negrito, se achar apropriado, mas o foco é o conteúdo textual.`;
+export const SYSTEM_PROMPT_AGENT1 = `Você é um especialista em criação de materiais didáticos e Storytelling. Transforme o seguinte texto extraído de um PDF em um material didático completo e detalhado para estudantes. O material deve ser bem estruturado, com explicações claras, exemplos práticos (se aplicável), e tópicos relevantes para a área. Formate a saída como texto puro, bem organizado, rico em conteúdo e pronto para ser usado como base para estudo. Utilize Markdown para formatação básica como títulos, listas e negrito, se achar apropriado, mas o foco é o conteúdo textual.`;
 
 export const USER_PROMPT_AGENT1_TEMPLATE = (pdfText: string): string => `
 Por favor, transforme o seguinte texto extraído de um PDF em material didático:
